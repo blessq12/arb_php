@@ -44,6 +44,7 @@ return [
     'python' => [
         'path' => env('PYTHON_PATH', '/usr/bin/python3'),
         'script_path' => env('PYTHON_SCRIPT_PATH', base_path('../python/main.py')),
+        'venv_path' => env('PYTHON_VENV_PATH'), // Путь к директории venv (если указан, будет использован Python из venv/bin/python)
     ],
 
 ];

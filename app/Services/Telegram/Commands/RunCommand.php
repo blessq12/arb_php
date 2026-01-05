@@ -23,8 +23,15 @@ class RunCommand implements TelegramCommandInterface
 
         try {
             // Получаем настройки из конфига
-            $pythonPath = config('services.python.path');
             $scriptPath = config('services.python.script_path');
+            $venvPath = config('services.python.venv_path');
+            
+            // Если указан путь к venv, используем Python из него
+            if ($venvPath) {
+                $pythonPath = rtrim($venvPath, '/') . '/bin/python';
+            } else {
+                $pythonPath = config('services.python.path');
+            }
             
             // Запускаем Python скрипт в фоне
             $command = sprintf(
