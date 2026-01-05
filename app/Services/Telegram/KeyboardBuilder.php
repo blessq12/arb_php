@@ -36,18 +36,7 @@ class KeyboardBuilder
                 self::inlineButton('📊 Статус', 'status'),
             ],
             [
-                self::inlineButton('👷 Воркеры', 'worker'),
-            ],
-            [
-                self::inlineButton('📜 История', 'history'),
-                self::inlineButton('📊 Аналитика', 'analytics'),
-            ],
-            [
                 self::inlineButton('⚙️ Настройки', 'settings'),
-                self::inlineButton('🔧 Фильтры', 'filters'),
-            ],
-            [
-                self::inlineButton('🔔 Уведомления', 'notifications'),
                 self::inlineButton('❓ Помощь', 'help'),
             ],
         ]);
@@ -63,22 +52,4 @@ class KeyboardBuilder
         ]);
     }
 
-    /**
-     * Создает меню управления воркерами
-     */
-    public static function workerManagementMenu(): array
-    {
-        return self::inlineKeyboard([
-            [
-                self::inlineButton('🔄 Обновить', 'worker'),
-                self::inlineButton('🔄 Перезапустить', 'worker_restart'),
-            ],
-            [
-                self::inlineButton('🧹 Очистить', 'worker_cleanup'),
-            ],
-            [
-                self::inlineButton('🔙 Назад в меню', 'menu'),
-            ],
-        ]);
-    }
 }

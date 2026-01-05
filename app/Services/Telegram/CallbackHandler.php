@@ -95,15 +95,6 @@ class CallbackHandler
             case 'help':
                 return $this->handleHelpCommand();
 
-            case 'worker':
-                return $this->handleWorkerCommand();
-
-            case 'worker_restart':
-                return $this->handleWorkerRestartCommand();
-
-            case 'worker_cleanup':
-                return $this->handleWorkerCleanupCommand();
-
             case 'back':
                 return $this->handleBackCallback($parts, $chatId, $messageId);
 
@@ -194,48 +185,6 @@ class CallbackHandler
         } catch (\Exception $e) {
             return [
                 'text' => "❌ <b>Ошибка получения справки</b>\n\n{$e->getMessage()}",
-                'buttons' => KeyboardBuilder::backToMenu()
-            ];
-        }
-    }
-
-    private function handleWorkerCommand(): array
-    {
-        try {
-            $workerCommand = new Commands\WorkerManagementCommand($this->telegramService);
-            $result = $workerCommand->handle([]);
-            return $result;
-        } catch (\Exception $e) {
-            return [
-                'text' => "❌ <b>Ошибка получения статуса воркеров</b>\n\n{$e->getMessage()}",
-                'buttons' => KeyboardBuilder::backToMenu()
-            ];
-        }
-    }
-
-    private function handleWorkerRestartCommand(): array
-    {
-        try {
-            $workerRestartCommand = new Commands\WorkerRestartCommand($this->telegramService);
-            $result = $workerRestartCommand->handle([]);
-            return $result;
-        } catch (\Exception $e) {
-            return [
-                'text' => "❌ <b>Ошибка перезапуска воркера</b>\n\n{$e->getMessage()}",
-                'buttons' => KeyboardBuilder::backToMenu()
-            ];
-        }
-    }
-
-    private function handleWorkerCleanupCommand(): array
-    {
-        try {
-            $workerCleanupCommand = new Commands\WorkerCleanupCommand($this->telegramService);
-            $result = $workerCleanupCommand->handle([]);
-            return $result;
-        } catch (\Exception $e) {
-            return [
-                'text' => "❌ <b>Ошибка очистки очередей</b>\n\n{$e->getMessage()}",
                 'buttons' => KeyboardBuilder::backToMenu()
             ];
         }

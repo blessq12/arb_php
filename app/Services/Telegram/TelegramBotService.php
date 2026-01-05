@@ -186,19 +186,11 @@ class TelegramBotService
             '/settings' => Commands\SettingsCommand::class,
             '/help' => Commands\HelpCommand::class,
 
-            // Новые команды (упрощено)
-            '/worker' => Commands\WorkerManagementCommand::class,
-            '/worker_restart' => Commands\WorkerRestartCommand::class,
-            '/worker_cleanup' => Commands\WorkerCleanupCommand::class,
-
             // Callback data для кнопок
             'start' => Commands\StartCommand::class,
             'menu' => Commands\StartCommand::class,
             'run' => Commands\RunCommand::class,
             'status' => Commands\StatusCommand::class,
-            'worker' => Commands\WorkerManagementCommand::class,
-            'worker_restart' => Commands\WorkerRestartCommand::class,
-            'worker_cleanup' => Commands\WorkerCleanupCommand::class,
             'settings' => Commands\SettingsCommand::class,
             'help' => Commands\HelpCommand::class,
         ];

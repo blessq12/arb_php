@@ -41,4 +41,9 @@ return [
         'message_template' => env('TELEGRAM_MESSAGE_TEMPLATE', 'Пара {pair}: профит {profit}% на {exchange}'),
     ],
 
+    'python' => [
+        'path' => env('PYTHON_PATH', '/usr/bin/python3'),
+        'script_path' => env('PYTHON_SCRIPT_PATH', base_path('../python/main.py')),
+    ],
+
 ];

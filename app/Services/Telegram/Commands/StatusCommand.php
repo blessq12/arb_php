@@ -22,17 +22,12 @@ class StatusCommand implements TelegramCommandInterface
         try {
             $message = "📊 <b>СТАТУС СИСТЕМЫ</b>\n\n";
 
-            // Статус очередей
-            $message .= "🔄 <b>Статус очередей:</b>\n";
-            $queueJobs = \DB::table('jobs')->count();
-            $failedJobs = \DB::table('failed_jobs')->count();
-            $message .= "• Задач в очереди: {$queueJobs}\n";
-            $message .= "• Неудачных задач: {$failedJobs}\n\n";
-
             // Статус системы
             $message .= "⚙️ <b>Система:</b>\n";
             $message .= "• Статус: 🟢 Работает\n";
-            $message .= "• Время: " . now()->format('H:i:s') . "\n";
+            $message .= "• Время: " . now()->format('H:i:s') . "\n\n";
+            $message .= "🚀 <b>Арбитраж:</b>\n";
+            $message .= "• Анализ выполняется через Python скрипт\n";
 
             return [
                 'text' => $message,
